@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Wj-UQ-843">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--A Wish List-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="iPartner_TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Llb-6U-Agk">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Llb-6U-Agk" secondAttribute="trailing" id="8ZC-jY-8mh"/>
+                            <constraint firstAttribute="bottom" secondItem="Llb-6U-Agk" secondAttribute="bottom" id="MDq-N9-ixh"/>
+                            <constraint firstItem="Llb-6U-Agk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RCb-rp-OFp"/>
+                            <constraint firstItem="Llb-6U-Agk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="v4e-04-SAt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="A Wish List" id="90t-PZ-xNC">
+                        <barButtonItem key="backBarButtonItem" title=" " id="syR-y3-cLS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Uah-Bf-cnz">
+                            <connections>
+                                <segue destination="rmo-6v-9uT" kind="presentation" id="Ovd-qN-IcA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Llb-6U-Agk" id="R3Q-fX-4Zr"/>
+                        <segue destination="TgG-JR-uBY" kind="show" id="KIt-ch-TeD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949" y="113"/>
+        </scene>
+        <!--A Wish-->
+        <scene sceneID="c6j-ho-DcG">
+            <objects>
+                <viewController id="TgG-JR-uBY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fg0-kY-KcN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="YZr-f4-31A"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="A Wish" id="UVh-IC-OIJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="08u-Ie-2WF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1808" y="524"/>
+        </scene>
+        <!--Create WishVC-->
+        <scene sceneID="G5M-kp-CTL">
+            <objects>
+                <viewController id="rmo-6v-9uT" customClass="CreateWishVC" customModule="iPartner_TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OtI-lb-vx1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNR-ep-8ya">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gVK-rT-pm6"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Add A Wish" id="NEZ-Tk-DNt">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uuq-qI-da3">
+                                            <connections>
+                                                <action selector="cancelPressed:" destination="rmo-6v-9uT" id="z7V-p8-P0N"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rR8-ZD-MeG">
+                                            <connections>
+                                                <action selector="savePressed:" destination="rmo-6v-9uT" id="s6C-9G-ieH"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write A Wish" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t39-bH-pvS">
+                                <rect key="frame" x="0.0" y="44" width="320" height="504"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="t39-bH-pvS" secondAttribute="bottom" id="OUf-rp-xIL"/>
+                            <constraint firstItem="t39-bH-pvS" firstAttribute="leading" secondItem="YlP-lg-UTT" secondAttribute="leading" id="SM5-Z9-HXL"/>
+                            <constraint firstItem="wNR-ep-8ya" firstAttribute="top" secondItem="YlP-lg-UTT" secondAttribute="top" id="WAC-xi-AIq"/>
+                            <constraint firstItem="YlP-lg-UTT" firstAttribute="trailing" secondItem="wNR-ep-8ya" secondAttribute="trailing" id="cQx-09-YQr"/>
+                            <constraint firstItem="wNR-ep-8ya" firstAttribute="leading" secondItem="OtI-lb-vx1" secondAttribute="leading" id="fob-td-F5g"/>
+                            <constraint firstItem="t39-bH-pvS" firstAttribute="top" secondItem="wNR-ep-8ya" secondAttribute="bottom" id="ovl-b7-r5v"/>
+                            <constraint firstItem="YlP-lg-UTT" firstAttribute="trailing" secondItem="t39-bH-pvS" secondAttribute="trailing" id="xzo-IL-xWJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YlP-lg-UTT"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1RL-SN-aIm"/>
+                    <connections>
+                        <outlet property="textField" destination="t39-bH-pvS" id="OBo-uU-hx2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4W-9S-Z02" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1807.5" y="-223.94366197183098"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="N7u-Me-LOc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wj-UQ-843" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cuT-P7-hkl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oLs-P5-osE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GPi-bi-wMD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.75" y="113.02816901408451"/>
+        </scene>
+    </scenes>
+</document>
