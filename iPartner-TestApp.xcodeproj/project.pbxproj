@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6FA2F92A233BD99B00E20E5C /* CreateWishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA2F929233BD99B00E20E5C /* CreateWishVC.swift */; };
+		6FA2F92C233C140700E20E5C /* DetailWishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA2F92B233C140700E20E5C /* DetailWishVC.swift */; };
 		6FD7B3F3233A95E100A73F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD7B3F2233A95E100A73F94 /* AppDelegate.swift */; };
 		6FD7B3F7233A95E100A73F94 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD7B3F6233A95E100A73F94 /* MainVC.swift */; };
 		6FD7B3FA233A95E100A73F94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD7B3F8233A95E100A73F94 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		0518E2A394E8332C155C4AB5 /* Pods-iPartner-TestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPartner-TestApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPartner-TestApp/Pods-iPartner-TestApp.release.xcconfig"; sourceTree = "<group>"; };
 		6D2F938305DC0083ED3053C7 /* Pods_iPartner_TestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPartner_TestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA2F929233BD99B00E20E5C /* CreateWishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWishVC.swift; sourceTree = "<group>"; };
+		6FA2F92B233C140700E20E5C /* DetailWishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWishVC.swift; sourceTree = "<group>"; };
 		6FD7B3EF233A95E100A73F94 /* iPartner-TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iPartner-TestApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD7B3F2233A95E100A73F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FD7B3F6233A95E100A73F94 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				6FD7B3F6233A95E100A73F94 /* MainVC.swift */,
 				6FA2F929233BD99B00E20E5C /* CreateWishVC.swift */,
+				6FA2F92B233C140700E20E5C /* DetailWishVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FA2F92C233C140700E20E5C /* DetailWishVC.swift in Sources */,
 				6FEA6CD7233BD40000E780BD /* WishCell.swift in Sources */,
 				6FD7B3F7233A95E100A73F94 /* MainVC.swift in Sources */,
 				6FD7B3F3233A95E100A73F94 /* AppDelegate.swift in Sources */,

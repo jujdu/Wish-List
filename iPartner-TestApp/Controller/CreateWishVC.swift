@@ -16,12 +16,29 @@ class CreateWishVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDoneBtn()
     }
     
+    func configureDoneBtn() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done,
+                                      target: self,
+                                      action: #selector(donePressed))
+        
+        toolBar.setItems([doneBtn], animated: false)
+        textField.inputAccessoryView = toolBar
+    }
+    
+    @objc func donePressed() {
+        view.endEditing(true)
+    }
     
     @IBAction func savePressed(_ sender: Any) {
-        if let text = textField.text, textField.text != nil {
-            let parameters = ["a": "add_entry", "session": "VUFPv1ght0yTV4VqPU", "body": text]
+        if let text = textField.text, !text.isEmpty {
+            guard let session = UserDefaults.standard.string(forKey: UserDefaultsKeys.sessionID) else { return }
+            print(session)
+            let parameters = ["a": "add_entry", "session": session, "body": text]
 
             api.postEntries(url: URL_BASE, parameters: parameters) { (_) in }
             dismiss(animated: true, completion: nil)

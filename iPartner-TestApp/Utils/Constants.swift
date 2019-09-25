@@ -14,3 +14,11 @@ public let HEADERS = ["token": "MIoSpS4-bu-Qv3dRkV"]
 struct Identifiers {
     static let WishCell = "WishCell"
 }
+
+struct Segues {
+    static let ToDetailWishVC = "ToDetailWishVC"
+}
+
+struct UserDefaultsKeys {
+    static let sessionID = "SessionID"
+}

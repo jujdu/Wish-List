@@ -24,5 +24,5 @@ struct BaseNewSession: Codable {
 }
 
 struct NewSession: Codable {
-    let id: String
+    let session: String
 }

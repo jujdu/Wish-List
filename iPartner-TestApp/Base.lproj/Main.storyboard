@@ -33,13 +33,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="syR-y3-cLS"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Uah-Bf-cnz">
                             <connections>
-                                <segue destination="rmo-6v-9uT" kind="presentation" id="Ovd-qN-IcA"/>
+                                <segue destination="rmo-6v-9uT" kind="presentation" modalPresentationStyle="fullScreen" id="Ovd-qN-IcA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Llb-6U-Agk" id="R3Q-fX-4Zr"/>
-                        <segue destination="TgG-JR-uBY" kind="show" id="KIt-ch-TeD"/>
+                        <segue destination="TgG-JR-uBY" kind="show" identifier="ToDetailWishVC" id="KIt-ch-TeD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -49,14 +49,31 @@
         <!--A Wish-->
         <scene sceneID="c6j-ho-DcG">
             <objects>
-                <viewController id="TgG-JR-uBY" sceneMemberID="viewController">
+                <viewController id="TgG-JR-uBY" customClass="DetailWishVC" customModule="iPartner_TestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fg0-kY-KcN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ck2-60-UFP">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ck2-60-UFP" firstAttribute="leading" secondItem="YZr-f4-31A" secondAttribute="leading" id="UEI-rR-43f"/>
+                            <constraint firstAttribute="bottom" secondItem="Ck2-60-UFP" secondAttribute="bottom" id="jOi-Tt-xIf"/>
+                            <constraint firstItem="YZr-f4-31A" firstAttribute="trailing" secondItem="Ck2-60-UFP" secondAttribute="trailing" id="juP-pG-gw7"/>
+                            <constraint firstItem="Ck2-60-UFP" firstAttribute="top" secondItem="YZr-f4-31A" secondAttribute="top" id="x6e-ze-LIO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YZr-f4-31A"/>
                     </view>
                     <navigationItem key="navigationItem" title="A Wish" id="UVh-IC-OIJ"/>
+                    <connections>
+                        <outlet property="bodyLbl" destination="Ck2-60-UFP" id="1YI-wn-kM1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08u-Ie-2WF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,7 +84,7 @@
             <objects>
                 <viewController id="rmo-6v-9uT" customClass="CreateWishVC" customModule="iPartner_TestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OtI-lb-vx1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNR-ep-8ya">
@@ -91,20 +108,22 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write A Wish" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t39-bH-pvS">
-                                <rect key="frame" x="0.0" y="44" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="269" width="320" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="sWV-HP-U2I"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="t39-bH-pvS" secondAttribute="bottom" id="OUf-rp-xIL"/>
-                            <constraint firstItem="t39-bH-pvS" firstAttribute="leading" secondItem="YlP-lg-UTT" secondAttribute="leading" id="SM5-Z9-HXL"/>
+                            <constraint firstItem="t39-bH-pvS" firstAttribute="centerY" secondItem="OtI-lb-vx1" secondAttribute="centerY" id="DQq-P1-Qsh"/>
+                            <constraint firstItem="YlP-lg-UTT" firstAttribute="trailing" secondItem="t39-bH-pvS" secondAttribute="trailing" id="Ell-wQ-z82"/>
                             <constraint firstItem="wNR-ep-8ya" firstAttribute="top" secondItem="YlP-lg-UTT" secondAttribute="top" id="WAC-xi-AIq"/>
                             <constraint firstItem="YlP-lg-UTT" firstAttribute="trailing" secondItem="wNR-ep-8ya" secondAttribute="trailing" id="cQx-09-YQr"/>
                             <constraint firstItem="wNR-ep-8ya" firstAttribute="leading" secondItem="OtI-lb-vx1" secondAttribute="leading" id="fob-td-F5g"/>
-                            <constraint firstItem="t39-bH-pvS" firstAttribute="top" secondItem="wNR-ep-8ya" secondAttribute="bottom" id="ovl-b7-r5v"/>
-                            <constraint firstItem="YlP-lg-UTT" firstAttribute="trailing" secondItem="t39-bH-pvS" secondAttribute="trailing" id="xzo-IL-xWJ"/>
+                            <constraint firstItem="t39-bH-pvS" firstAttribute="leading" secondItem="YlP-lg-UTT" secondAttribute="leading" id="ioJ-RB-gdv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YlP-lg-UTT"/>
                     </view>

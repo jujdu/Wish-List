@@ -13,10 +13,9 @@ class MainVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let api = NetworkService()
-    let newSession = ["a": "new_session"]
-    let getParameters = ["a": "get_entries", "session": "VUFPv1ght0yTV4VqPU"]
-    
+
     var wishes: [Wish]?
+    var wishToPass: Wish!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,10 @@ class MainVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        api.postEntries(url: URL_BASE, parameters: getParameters) { [unowned self] (response) in
+        guard let session = UserDefaults.standard.string(forKey: UserDefaultsKeys.sessionID) else { return }
+        let paramenters = ["a": "get_entries",
+                             "session": session]
+        api.postEntries(url: URL_BASE, parameters: paramenters) { [unowned self] (response) in
             guard let response = response else { return }
             for item in response.data {
                 self.wishes = item
@@ -52,5 +54,18 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        wishToPass = wishes?[indexPath.row]
+        performSegue(withIdentifier: Segues.ToDetailWishVC, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ToDetailWishVC {
+            if let vc = segue.destination as? DetailWishVC {
+                vc.wish = wishToPass
+            }
+        }
     }
 }
