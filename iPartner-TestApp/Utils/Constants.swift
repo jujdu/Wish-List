@@ -10,7 +10,6 @@ import Foundation
 
 public let URL_BASE = "https://bnet.i-partner.ru/testAPI/"
 public let HEADERS = ["token": "MIoSpS4-bu-Qv3dRkV"]
-public let SESSION = UserDefaults.standard.string(forKey: UserDefaultsKeys.sessionID)
 
 struct Identifiers {
     static let WishCell = "WishCell"

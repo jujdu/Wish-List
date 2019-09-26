@@ -13,17 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let api = NetworkService()
-        let defaults = UserDefaults.standard
-        let sessionID = defaults.string(forKey: UserDefaultsKeys.sessionID)
-        
-        if sessionID == nil {
-            api.postNewSession(url: URL_BASE,
-                               parameters: ["a": "new_session"]) { (response) in
-                                guard let sessionID = response?.data.session else { return }
-                                defaults.set(sessionID, forKey: UserDefaultsKeys.sessionID)
-            }
-        }
         return true
     }
     

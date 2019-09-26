@@ -13,7 +13,7 @@ class NetworkService {
     
     private func fetchData<T: Decodable>(url: String, parameters: Parameters, completion: @escaping (T?) -> ()) {
         guard let url = URL(string: url) else { return }
-                
+                   
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: HEADERS).responseJSON { (response) in
             if let error = response.result.error {
                 debugPrint(error.localizedDescription)

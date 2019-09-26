@@ -36,9 +36,12 @@ class CreateWishVC: UIViewController {
     
     @IBAction func savePressed(_ sender: Any) {
         if let text = textField.text, !text.isEmpty {
-            guard let session = SESSION else { return }
-            print(session)
-            let parameters = ["a": "add_entry", "session": session, "body": text]
+            let sessionID = UserDefaults.standard.string(forKey: UserDefaultsKeys.sessionID)
+            print(sessionID)
+            guard let session = sessionID else { return }
+            let parameters = ["a": "add_entry",
+                              "session": session,
+                              "body": text]
 
             api.postEntries(url: URL_BASE, parameters: parameters) { (_) in }
             dismiss(animated: true, completion: nil)
