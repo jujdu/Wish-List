@@ -22,15 +22,23 @@ class WishCell: UITableViewCell {
     
     func updateUI(wish: Wish?) {
         guard let wish = wish else { return }
-        daLbl.text = "da: \(wish.da)"
+        
+        let dateDa = Date(timeIntervalSince1970: Double(wish.da) ?? 0)
+        let dateDm = Date(timeIntervalSince1970: Double(wish.dm) ?? 0)
+        
+        let strDateDa = getStringFromDate(dateDa)
+        let strDateDm = getStringFromDate(dateDm)
+        
+        daLbl.text = "da: \(strDateDa)"
         
         if wish.dm == wish.da {
             dmLbl.isHidden = true
         } else {
-            dmLbl.text = "dm: \(wish.dm)"
+            dmLbl.isHidden = false
+            dmLbl.text = "dm: \(strDateDm)"
         }
         
-        wishLbl.text = wish.body
+        wishLbl.text = wish.body.maxLength(length: 200)
     }
     
 }

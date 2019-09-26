@@ -8,14 +8,30 @@
 
 import UIKit
 
+enum State {
+    case loading
+    case error
+    case populated
+}
+
 class MainVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var updateView: UIView!
+    @IBOutlet weak var loadingView: UIView!
     
-    let api = NetworkService()
+    private var state = State.loading {
+        didSet {
+            setFooterView()
+            tableView.reloadData()
+        }
+    }
+    
+    private let api = NetworkService()
 
-    var wishes: [Wish]?
-    var wishToPass: Wish!
+    private var wishes: [Wish]?
+    private var wishToPass: Wish!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,24 +39,47 @@ class MainVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        guard let session = UserDefaults.standard.string(forKey: UserDefaultsKeys.sessionID) else { return }
-        let paramenters = ["a": "get_entries",
-                             "session": session]
-        api.postEntries(url: URL_BASE, parameters: paramenters) { [unowned self] (response) in
-            guard let response = response else { return }
-            for item in response.data {
-                self.wishes = item
-            }
-            self.tableView.reloadData()
-        }
+        loadData()
     }
     
-    func configureTableView() {
+    private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: Identifiers.WishCell, bundle: nil),
                            forCellReuseIdentifier: Identifiers.WishCell)
     }
+    
+    private func loadData() {
+        state = .loading
+        guard let session = UserDefaults.standard.string(forKey: UserDefaultsKeys.sessionID) else { return }
+        let paramenters = ["a": "get_entries",
+                             "session": session]
+        api.postEntries(url: URL_BASE, parameters: paramenters) { [unowned self] (response) in
+            guard let response = response else { self.state = .error; return }
+            for item in response.data {
+                self.wishes = item
+            }
+            self.state = .populated
+        }
+    }
+    
+    private func setFooterView() {
+          switch state {
+          case .loading:
+              tableView.tableFooterView = loadingView
+              activityIndicator.startAnimating()
+          case .error:
+              tableView.tableFooterView = updateView
+          case .populated:
+              tableView.tableFooterView = nil
+          }
+      }
+    
+    
+    @IBAction func updatePressed(_ sender: Any) {
+        loadData()
+    }
+    
 }
 
 extension MainVC: UITableViewDelegate, UITableViewDataSource {

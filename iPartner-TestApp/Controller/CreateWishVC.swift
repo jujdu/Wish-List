@@ -12,14 +12,14 @@ class CreateWishVC: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     
-    let api = NetworkService()
+    private let api = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDoneBtn()
     }
     
-    func configureDoneBtn() {
+    private func configureDoneBtn() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done,

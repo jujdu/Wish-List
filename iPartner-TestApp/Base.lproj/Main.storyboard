@@ -38,10 +38,64 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="ZSe-XX-jl5" id="Jvi-cC-ecd"/>
+                        <outlet property="loadingView" destination="Dfy-wo-siS" id="x5m-oT-GO7"/>
                         <outlet property="tableView" destination="Llb-6U-Agk" id="R3Q-fX-4Zr"/>
+                        <outlet property="updateView" destination="9uS-kl-1eE" id="D6G-z8-BR8"/>
                         <segue destination="TgG-JR-uBY" kind="show" identifier="ToDetailWishVC" id="KIt-ch-TeD"/>
                     </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="9uS-kl-1eE" userLabel="Error View">
+                    <rect key="frame" x="0.0" y="0.0" width="318" height="547"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="JzI-Lq-tg5">
+                            <rect key="frame" x="71" y="216" width="176.5" height="115"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSX-M3-vRV">
+                                    <rect key="frame" x="64.5" y="0.0" width="47" height="23.5"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet connection" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfG-jg-GSO">
+                                    <rect key="frame" x="0.0" y="42.5" width="176.5" height="23.5"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3o-Ik-9Gz">
+                                    <rect key="frame" x="34" y="85" width="108" height="30"/>
+                                    <state key="normal" title="Press to update"/>
+                                    <connections>
+                                        <action selector="updatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1c7-oy-HGj"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="JzI-Lq-tg5" firstAttribute="centerX" secondItem="9uS-kl-1eE" secondAttribute="centerX" id="VPs-vM-exy"/>
+                        <constraint firstItem="JzI-Lq-tg5" firstAttribute="centerY" secondItem="9uS-kl-1eE" secondAttribute="centerY" id="xMx-8G-wdD"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="9Sd-Z8-h2O"/>
+                </view>
+                <view contentMode="scaleToFill" id="Dfy-wo-siS" userLabel="Loading View">
+                    <rect key="frame" x="0.0" y="0.0" width="318" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZSe-XX-jl5">
+                            <rect key="frame" x="149" y="15" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ZSe-XX-jl5" firstAttribute="centerY" secondItem="Dfy-wo-siS" secondAttribute="centerY" id="1rA-1x-hpz"/>
+                        <constraint firstItem="ZSe-XX-jl5" firstAttribute="centerX" secondItem="Dfy-wo-siS" secondAttribute="centerX" id="nbb-at-T8N"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="m60-kz-Hdc"/>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="949" y="113"/>
@@ -77,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08u-Ie-2WF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1808" y="524"/>
+            <point key="canvasLocation" x="1896" y="524"/>
         </scene>
         <!--Create WishVC-->
         <scene sceneID="G5M-kp-CTL">
@@ -134,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4W-9S-Z02" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807.5" y="-223.94366197183098"/>
+            <point key="canvasLocation" x="1896" y="-226"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N7u-Me-LOc">
