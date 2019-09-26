@@ -51,7 +51,7 @@ class MainVC: UIViewController {
     
     private func loadData() {
         state = .loading
-        guard let session = UserDefaults.standard.string(forKey: UserDefaultsKeys.sessionID) else { return }
+        guard let session = SESSION else { return }
         let paramenters = ["a": "get_entries",
                              "session": session]
         api.postEntries(url: URL_BASE, parameters: paramenters) { [unowned self] (response) in

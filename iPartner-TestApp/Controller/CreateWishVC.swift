@@ -36,7 +36,7 @@ class CreateWishVC: UIViewController {
     
     @IBAction func savePressed(_ sender: Any) {
         if let text = textField.text, !text.isEmpty {
-            guard let session = UserDefaults.standard.string(forKey: UserDefaultsKeys.sessionID) else { return }
+            guard let session = SESSION else { return }
             print(session)
             let parameters = ["a": "add_entry", "session": session, "body": text]
 
